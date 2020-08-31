@@ -27,9 +27,6 @@ export default function App() {
     const response = await api.post(`/repositories/${id}/like`)
     console.log(response.data);
     const repository = repositories.find(repository => repository.id === id) 
-    if(!repository) {
-      return response.status(400).json({error: "Repository not Found"});
-    }
     repository.likes++
     setRepositories([...repositories])
   }
